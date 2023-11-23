@@ -19,6 +19,9 @@ const css = `<style>
       text-decoration: none;
       color: #333;
     }
+    .sakura-checker img {
+      width: 15px;
+    }
     .sakura-checker .item-info {
       text-align: center;
       border: 3px solid #ffd5df;
@@ -65,7 +68,13 @@ const css = `<style>
       width: auto;
       height: 60px;
     }
-    .sakura-checker .icon {
+    .sakura-checker .item-logo img {
+      height: 24px;
+      width: auto;
+    }
+    .sakura-checker .icon, .sakura-checker .tooltip {
+      width: 15px;
+      height: 15px;
       max-width: 15px;
       max-height: 15px;
     }
