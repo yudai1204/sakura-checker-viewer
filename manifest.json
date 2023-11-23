@@ -1,13 +1,13 @@
 {
   "manifest_version": 3,
   "name": "Amazon Sakura Checker Viewer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "icons": {
     "16": "icon.png",
     "48": "icon.png",
     "128": "icon.png"
   },
-  "description": "Amazonの画面にサクラチェッカーの結果を直接表示します。",
+  "description": "Amazonの画面にサクラチェッカーおよびReviewMetaの結果を直接表示します。",
   "background": {
     "service_worker": "background.js"
   },
@@ -18,5 +18,5 @@
       "js": ["main.js"]
     }
   ],
-  "host_permissions": ["https://sakura-checker.jp/"]
+  "host_permissions": ["https://sakura-checker.jp/", "https://reviewmeta.com/"]
 }
