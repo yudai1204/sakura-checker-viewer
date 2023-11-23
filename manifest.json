@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Amazon Sakura Checker Viewer",
+  "version": "0.1.0",
+  "description": "Amazonの画面にサクラチェッカーの結果を直接表示します。",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.amazon.co.jp/*", "https://amazon.co.jp/*"],
+      "run_at": "document_start",
+      "js": ["main.js"]
+    }
+  ],
+  "host_permissions": ["https://sakura-checker.jp/"]
+}
