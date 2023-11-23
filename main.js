@@ -1,4 +1,7 @@
 const css = `<style>
+    .sakura-checker-parent {
+      margin-bottom: 5px;
+    }
     .sakura-checker {
       display: block;
       margin: 5px 0;
@@ -101,12 +104,19 @@ const main = () => {
         if (insertArea !== null) {
           clearInterval(interval);
           insertArea.insertAdjacentHTML("afterend", css);
-          const div = document.createElement("a");
-          div.classList.add("sakura-checker");
-          div.setAttribute("href", targetUrl);
-          div.setAttribute("target", "_blank");
-          div.insertAdjacentHTML("afterBegin", price);
-          insertArea.insertAdjacentElement("afterend", div);
+          const box = document.createElement("a");
+          box.classList.add("sakura-checker");
+          box.setAttribute("href", targetUrl);
+          box.setAttribute("target", "_blank");
+          box.insertAdjacentHTML("afterBegin", price);
+          const parentBox = document.createElement("div");
+          parentBox.classList.add("sakura-checker-parent");
+          parentBox.insertAdjacentElement("afterbegin", box);
+          parentBox.insertAdjacentHTML(
+            "beforeEnd",
+            `<a href="${targetUrl}" target="_blank" style="margin-left:10px">サクラチェッカーで詳細を見る</a>`
+          );
+          insertArea.insertAdjacentElement("afterend", parentBox);
           return;
         } else {
           maxTry--;
