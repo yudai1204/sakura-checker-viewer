@@ -222,7 +222,22 @@ const sakuraChecker = async (asin) => {
   });
   const parser = new DOMParser();
   const doc = parser.parseFromString(response.html, "text/html");
-  const score = replacer(doc.querySelector(".item-info").outerHTML);
+  const score =
+    doc.querySelector(".item-info")?.innerText?.trim() !== ""
+      ? replacer(doc.querySelector(".item-info").outerHTML)
+      : `
+      <div class="item-info">
+      <div class="item-logo">
+          <img src="https://sakura-checker.jp/images/logo_s.png" alt="サクラチェッカー">
+        </div>
+        <div>
+          <div class="item-rating">no data</div>
+          <div class="item-num">
+            Click here to Analyze data
+          </div>
+        </div>
+      </div>
+        `;
   const box = document.createElement("a");
   box.classList.add("sakura-checker");
   box.setAttribute("href", targetUrl);
